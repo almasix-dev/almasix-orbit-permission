@@ -1,0 +1,69 @@
+name: Orbit Permission
+slug: orbit-permission
+summary: Opinionated Users, Roles, and Permissions UI for Orbit panels, built on almasix-permission.
+description: |
+  ## What it does
+
+  `PermissionPlugin` adds three Access resources — **Users**, **Roles**, and
+  **Permissions** — plus a dashboard stats widget. Roles get a checkbox list of
+  abilities generated from the panel's resources, pages, and widgets
+  (`posts.view_any`, `posts.create`, …). A `super_admin` role receives every
+  generated ability.
+
+  ## Install
+
+  ```bash
+  pip install almasix-orbit-permission
+  ```
+
+  Mix `HasOrbitPermissions` into your user next to `HasRoles`, migrate the
+  permission tables, then register the plugin:
+
+  ```python
+  from almasix_orbit_permission import PermissionPlugin
+
+  panel.plugin(
+      PermissionPlugin.make()
+      .navigation_group("Access")
+      .generate_on_boot()
+  )
+  ```
+
+  ## Commands
+
+  ```bash
+  smith orbit-permission:generate admin
+  smith orbit-permission:super-admin ada@example.com
+  ```
+
+  Full README: [almasix-orbit-permission](https://github.com/almasix-dev/almasix-orbit-permission).
+author: almasix
+categories:
+  - panel-kit
+  - authentication
+orbit_versions:
+  - "0.4"
+price: free
+package: almasix-orbit-permission
+github_repo: almasix-dev/almasix-orbit-permission
+repository: https://github.com/almasix-dev/almasix-orbit-permission
+docs_url: https://orbit.almasix.com/plugins/orbit-permission/
+homepage: https://orbit.almasix.com/plugins/orbit-permission/
+changelog_url: https://github.com/almasix-dev/almasix-orbit-permission/releases
+license: MIT
+keywords:
+  - permissions
+  - roles
+  - users
+  - access
+requires_python: ">=3.11"
+thumbnail: /plugins/orbit-permission/thumbnail.png
+screenshots:
+  - src: /plugins/orbit-permission/screenshot.png
+    alt: Role form with a two-column checkbox list of generated abilities
+features:
+  dark_mode: true
+  official: true
+  featured: true
+status: published
+published_at: 2026-09-20
