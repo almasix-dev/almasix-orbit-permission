@@ -35,7 +35,7 @@ jobs:
           pip install twine
           twine check --strict dist/*
       - name: Tag must match the packaged version
-        if: github.event_name == "release"
+        if: github.event_name == 'release'
         run: |
           packaged=$(python -c "import tomllib, pathlib; print(tomllib.loads(pathlib.Path('pyproject.toml').read_text())['project']['version'])")
           tagged="${GITHUB_REF_NAME#v}"
